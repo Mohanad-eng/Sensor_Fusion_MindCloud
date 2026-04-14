@@ -1,8 +1,9 @@
 # Sensor_Fusion_MindCloud
+![](<https://images.squarespace-cdn.com/content/v1/6320a2f4b74abf777594e293/934a7d74-1f25-4155-b40d-4b82cec9964a/multi-sensor-fusion.jpg?format=original>)
 
 ## What is Sensor Fusion ?
 
-![photo for sensr fusion](<img width="722" height="414" alt="image" src="https://github.com/user-attachments/assets/f275f807-f199-4168-8d75-325b35a13dd0" />)
+![photo for sensr fusion](<https://www.novelic.com/wp-content/uploads/2023/08/sensor-fusion.png>)
 
 **Sensor fusion** is Combining more than one reading from Different Sensors to :
 
