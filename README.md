@@ -1,7 +1,7 @@
-# Sensor_Fusion_MindCloud
+# Sensor_Fusion_MindCloud🧭
 ![](<https://images.squarespace-cdn.com/content/v1/6320a2f4b74abf777594e293/934a7d74-1f25-4155-b40d-4b82cec9964a/multi-sensor-fusion.jpg?format=original>)
 
-## What is Sensor Fusion ?
+## What is Sensor Fusion ?🛰
 
 ![photo for sensr fusion](<https://www.novelic.com/wp-content/uploads/2023/08/sensor-fusion.png>)
 
@@ -19,7 +19,7 @@
 
 and more benefits for it.
 
-## Let's dive in the Types of the sensor fusion:
+## ✔️Let's dive in the Types of the sensor fusion:
 
 ![fusion types](<https://app.dropinblog.com/uploaded/blogs/34241363/files/Types_of_Sensor_3.png>)
 
@@ -35,7 +35,7 @@ and more benefits for it.
 
   here we fuse the data and and do tracking algorithms for each individual sensor, and then fuse the results.
 
-## Extended Kalman Filters :
+## Extended Kalman Filters 🧮:
 
 EKF is a mathematical algorithm that combines data from different sensors to figure out a robot’s position, which way it’s facing, and how fast it’s moving. It does this by constantly making educated guesses based on how the robot is expected to move, and then fine-tuning these guesses using the actual sensor readings. This helps to smooth out any noise or inaccuracies in the sensor data, giving us a cleaner and more reliable estimate of where the robot is and what it’s doing.
 
