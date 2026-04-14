@@ -18,7 +18,7 @@
 
 and more benefits for it.
 
-## Let's dive in the Types of the sensor fusion types :
+## Let's dive in the Types of the sensor fusion:
 
 ![fusion types](<https://app.dropinblog.com/uploaded/blogs/34241363/files/Types_of_Sensor_3.png>)
 
@@ -35,3 +35,10 @@ and more benefits for it.
   here we fuse the data and and do tracking algorithms for each individual sensor, and then fuse the results.
 
 ## Extended Kalman Filters :
+
+EKF is a mathematical algorithm that combines data from different sensors to figure out a robot’s position, which way it’s facing, and how fast it’s moving. It does this by constantly making educated guesses based on how the robot is expected to move, and then fine-tuning these guesses using the actual sensor readings. This helps to smooth out any noise or inaccuracies in the sensor data, giving us a cleaner and more reliable estimate of where the robot is and what it’s doing.
+
+1- can handle noisy sensor data. It’s smart enough to trust the sensors that are more likely to be accurate, while still using data from the less precise sensors. This means that even if one sensor is a bit inaccurate, the EKF can still do a good job of locating the robot by relying more on the other sensors.
+
+2- can keep working even if a sensor stops providing data for a little while. It does this by using its educated guesses and the last known sensor readings to keep tracking the robot. When the sensor starts working again, the EKF smoothly brings the new data back into the mix. 
+
