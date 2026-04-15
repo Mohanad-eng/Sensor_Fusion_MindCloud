@@ -49,8 +49,21 @@ On a high-level, the EKF algorithm has two stages, a predict phase and an update
 
 - Predict Step :
   
-- Update (Correct) Step :
+  Using the state space model of the robotics system, predict the state estimate at time t based on the state estimate at time t-1 and the control input applied at time t-1.
+    
+  Predict the state covariance estimate based on the previous covariance and some noise.
   
+- Update (Correct) Step :
+
+  Calculate the difference between the actual sensor measurements at time t minus what the measurement model predicted the sensor measurements would be for the current timestep t.
+  
+  Calculate the measurement residual covariance.
+  
+  Calculate the near-optimal Kalman gain.
+  
+  Calculate an updated state estimate for time t.
+  
+  Update the state covariance estimate for time t.
 
 
 
