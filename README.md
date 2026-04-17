@@ -80,6 +80,8 @@ we must define “odom_frame”, “base_link_frame”, and “world_frame” wh
 We also need to define which data we want to fuse. You can see from the above image, here we are fusing one odometry message (odom0: topic name) and one IMU message(imu0: topic name). In the odom0_config and imu0_config, there are 15 elements. Each should be either true or false. These elements are: (X, Y,Z, roll, pitch,yaw, X_velocity,Y_velocity,Z_velocity, roll_velocity,pitch_velocity,yaw_velocity, X_acceleration,Y_acceleration,Z_acceleration). Setting one entry to true means we are fusing that data. Be sure to modify them according to your sensor. The accuracy of the fusion model highly depends on the fusion configuration.
 
 Once you run the simulation and our package, you will see the non-filtered and filtered odometry in the RVIZ window. To print the filtered odometry message, run “rostopic echo /odometry/filtered” in the command terminal and you will see the better odometry messages.
+## Fusing GPS : 
+![](<https://camo.githubusercontent.com/a1106d70e4170dcb53a7de9039911cf33f9b0ca5213bb590d53b87abf7ce784f/68747470733a2f2f692e6962622e636f2f4373427953776b2f6e61767361742d7472616e73666f726d2e706e67>)
 
 ## Project 1: 
 
