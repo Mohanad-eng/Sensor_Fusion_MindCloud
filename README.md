@@ -35,6 +35,10 @@ and more benefits for it.
 
   here we fuse the data and and do tracking algorithms for each individual sensor, and then fuse the results.
 
+## Filter Types :
+
+![](<https://miro.medium.com/v2/resize:fit:720/format:webp/1*O_DUzPkZyrMovzD7cf8wlg.png>)
+
 ## Extended Kalman Filters 🧮:
 
 EKF is a mathematical algorithm that combines data from different sensors to figure out a robot’s position, which way it’s facing, and how fast it’s moving. It does this by constantly making educated guesses based on how the robot is expected to move, and then fine-tuning these guesses using the actual sensor readings. This helps to smooth out any noise or inaccuracies in the sensor data, giving us a cleaner and more reliable estimate of where the robot is and what it’s doing.
@@ -66,6 +70,19 @@ On a high-level, the EKF algorithm has two stages, a predict phase and an update
   Update the state covariance estimate for time t.
 
 **Robot_localization Pkg**
+
+Extended Kalman Filter(EKF) was developed. This article coherently explains how it works. You need basic knowledge of linear algebra, and statistics specially gaussian distribution to understand the theory. Now, implementing this EKF could be laborious.
+
+This package is the implemented version of the EKF in ROS. All you need is to install it and edit some parameters and you are good to go without going through the mathematics and programming part.
+
+we must define “odom_frame”, “base_link_frame”, and “world_frame” which will be like “odom_frame”. We define “publish_tf” as true, which means, the package will publish the “odom” → “base_link” transformation.
+
+We also need to define which data we want to fuse. You can see from the above image, here we are fusing one odometry message (odom0: topic name) and one IMU message(imu0: topic name). In the odom0_config and imu0_config, there are 15 elements. Each should be either true or false. These elements are: (X, Y,Z, roll, pitch,yaw, X_velocity,Y_velocity,Z_velocity, roll_velocity,pitch_velocity,yaw_velocity, X_acceleration,Y_acceleration,Z_acceleration). Setting one entry to true means we are fusing that data. Be sure to modify them according to your sensor. The accuracy of the fusion model highly depends on the fusion configuration.
+
+Once you run the simulation and our package, you will see the non-filtered and filtered odometry in the RVIZ window. To print the filtered odometry message, run “rostopic echo /odometry/filtered” in the command terminal and you will see the better odometry messages.
+
+## Project 1: 
+
 
 
 
