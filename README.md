@@ -35,7 +35,7 @@ and more benefits for it.
 
   here we fuse the data and and do tracking algorithms for each individual sensor, and then fuse the results.
 
-## Filter Types :
+## Filter Types 📌:
 
 ![](<https://miro.medium.com/v2/resize:fit:720/format:webp/1*O_DUzPkZyrMovzD7cf8wlg.png>)
 
@@ -69,7 +69,7 @@ On a high-level, the EKF algorithm has two stages, a predict phase and an update
   
   Update the state covariance estimate for time t.
 
-**Robot_localization Pkg**
+**Robot_localization Pkg 💻**
 
 Extended Kalman Filter(EKF) was developed. This article coherently explains how it works. You need basic knowledge of linear algebra, and statistics specially gaussian distribution to understand the theory. Now, implementing this EKF could be laborious.
 
