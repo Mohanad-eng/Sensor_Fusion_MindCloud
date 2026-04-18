@@ -84,8 +84,117 @@ Once you run the simulation and our package, you will see the non-filtered and f
 ![](<https://camo.githubusercontent.com/a1106d70e4170dcb53a7de9039911cf33f9b0ca5213bb590d53b87abf7ce784f/68747470733a2f2f692e6962622e636f2f4373427953776b2f6e61767361742d7472616e73666f726d2e706e67>)
 
 ## Project 1: 
+Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and imu 
+
+- First We make a workspace called **sensor_fusion_ws**
+
+``mkdir sensor_fusion_ws``
+
+then inside it src folder 
+
+``cd sensor_fusion_ws``
+
+``mkdir src``
+
+then we make a pkg called sensor_fusion_pkg
+
+``ros2 pkg create --build-tool ament_python sensor_fusion_pkg``
+
+inside our pkg we will make a launch folder >>>> to launch the ekf_node 
+
+and we will make a config folder to put inside it our yaml file
+
+``cd sensor_fusion_pkg``
+
+``mkdir launch``
+
+``mkdir config``
+
+``cd config``
+
+``touch rosbot_ekf.yaml``
+
+``cd launch``
+
+``touch rosbot_launch.py``
+
+``chmod +x rosbot_launch.py``
+
+then copy and paste the codes : 
+
+``import os
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
 
 
+def generate_launch_description():
+
+    ekf_config = os.path.join(
+        get_package_share_directory('sensor_fusion_pkg'),
+        'config',
+        'rosbot_ekf.yaml'
+    )
+
+    return LaunchDescription([
+
+        Node(
+            package='robot_localization',
+            executable='ekf_node',
+            name='ekf_filter_node',
+            output='screen',
+            parameters=[ekf_config],
+        ),
+
+    ])
+``
+
+``
+ekf_filter_node:
+  ros__parameters:
+
+    frequency: 30.0
+    two_d_mode: true
+    publish_tf: true
+    use_sim_time: true
+
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom
+
+    # -------------------
+    # ODOM
+    # -------------------
+    odom0: /rosbot_xl_base_controller/odom
+    odom0_config: [
+      true, true, false,
+      false, false, true,
+      true, false, false,
+      false, false, true,
+      false, false, false
+    ]
+
+    # -------------------
+    # IMU
+    # -------------------
+    imu0: /imu_broadcaster/imu
+    imu0_config: [
+      false, false, false,
+      true, true, true,
+      false, false, false,
+      true, true, true,
+      true, true, true
+    ]
+
+    sensor_timeout: 1.0
+``
+
+then we build the ws : 
+
+``cd ``
+
+``colcon build --symlink-install``
 
 
 
