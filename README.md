@@ -122,7 +122,9 @@ and we will make a config folder to put inside it our yaml file
 
 then copy and paste the codes : 
 
-``import os
+``
+
+import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
@@ -150,6 +152,7 @@ def generate_launch_description():
 ``
 
 ``
+
 ekf_filter_node:
   ros__parameters:
 
