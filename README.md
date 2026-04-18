@@ -197,5 +197,14 @@ then we build the ws :
 
 ``colcon build --symlink-install``
 
+Then we run the project :
 
+1- run the webots simulation if the rosbot :
 
+``ros2 launch webots_ros2_husarion rosbot_xl_launch.py``
+
+`` ros2 launch sensor_fusion_pkg rosbot_launch.py``
+
+``ros2 run teleop_twist_keyboard teleop_twist_keyboard   --ros-args -p stamped:=true``
+
+``rviz2``
