@@ -201,13 +201,29 @@ Then we run the project :
 
 1- run the webots simulation if the rosbot :
 
-![Photo From Rviz2 Simulation](<Screenshot from 2026-04-19 01-13-54.png>)
-
-
 ``ros2 launch webots_ros2_husarion rosbot_xl_launch.py``
+
+> ![Photo From Rviz2 Simulation](<Screenshot from 2026-04-19 01-13-54.png>)
+
+2- Then in another Terminal run the launch file we made to run the config file and the robot_localization pkg :
 
 `` ros2 launch sensor_fusion_pkg rosbot_launch.py``
 
+3- Then in a third terminal run the teleopkey (we make it stampted because webots use stamped) :
+
 ``ros2 run teleop_twist_keyboard teleop_twist_keyboard   --ros-args -p stamped:=true``
 
+4- then open rviz and visualize the odometry in it :
+
 ``rviz2``
+
+> How to setup Rviz for simulation :
+  1-
+> 
+  2-
+  
+  3- 
+
+  4- 
+  
+  here is a photo for the simualtion
