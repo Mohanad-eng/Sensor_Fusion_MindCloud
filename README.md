@@ -83,6 +83,9 @@ Once you run the simulation and our package, you will see the non-filtered and f
 ## Fusing GPS : 
 ![](<https://camo.githubusercontent.com/a1106d70e4170dcb53a7de9039911cf33f9b0ca5213bb590d53b87abf7ce784f/68747470733a2f2f692e6962622e636f2f4373427953776b2f6e61767361742d7472616e73666f726d2e706e67>)
 
+## Explaining Important Things :
+
+
 ## Project 1: 
 Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and imu 
 
@@ -90,17 +93,17 @@ Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and
 
 ``mkdir sensor_fusion_ws``
 
-then inside it src folder 
+- then inside it src folder 
 
 ``cd sensor_fusion_ws``
 
 ``mkdir src``
 
-then we make a pkg called sensor_fusion_pkg
+- then we make a pkg called sensor_fusion_pkg
 
 ``ros2 pkg create --build-tool ament_python sensor_fusion_pkg``
 
-inside our pkg we will make a launch folder >>>> to launch the ekf_node 
+- inside our pkg we will make a launch folder >>>> to launch the ekf_node 
 
 and we will make a config folder to put inside it our yaml file
 
@@ -120,7 +123,9 @@ and we will make a config folder to put inside it our yaml file
 
 ``chmod +x rosbot_launch.py``
 
-then copy and paste the codes : 
+- then copy and paste the codes : 
+
+in the **rosbot_launch.py** :
 
 ```
 import os
@@ -148,6 +153,7 @@ def generate_launch_description():
 
     ])
 ```
+in the **rosbot_ekf.yaml**:
 
 ```
 ekf_filter_node:
@@ -191,13 +197,13 @@ ekf_filter_node:
     
 ```
 
-then we build the ws : 
+- then we build the ws : 
 
-``cd ``
+``cd sensor_fusion_ws``
 
 ``colcon build --symlink-install``
 
-Then we run the project :
+- Then we run the project :
 
 1- run the webots simulation if the rosbot :
 
@@ -208,6 +214,8 @@ Then we run the project :
 2- Then in another Terminal run the launch file we made to run the config file and the robot_localization pkg :
 
 `` ros2 launch sensor_fusion_pkg rosbot_launch.py``
+
+> ![](<>)
 
 3- Then in a third terminal run the teleopkey (we make it stampted because webots use stamped) :
 
@@ -226,4 +234,11 @@ Then we run the project :
 
   4- 
   
-  here is a photo for the simualtion
+  > here is a photo for the simualtion :
+
+  ![](<>)
+
+
+- The demo video : 
+
+
