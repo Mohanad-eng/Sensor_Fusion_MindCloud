@@ -201,7 +201,8 @@ Then we run the project :
 
 1- run the webots simulation if the rosbot :
 
-![](Screenshot from 2026-04-19 01-13-54.png)
+![Photo From Rviz2 Simulation](<Screenshot from 2026-04-19 01-13-54.png>)
+
 
 ``ros2 launch webots_ros2_husarion rosbot_xl_launch.py``
 
