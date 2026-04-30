@@ -85,11 +85,13 @@ Once you run the simulation and our package, you will see the non-filtered and f
 
 A covariance matrix describes how uncertain a sensor is about its measurements, and how those uncertainties relate to each other. Think of it as a "confidence score" but in matrix form.
 
-![](<<img width="1440" height="1040" alt="image" src="https://github.com/user-attachments/assets/2ad7b932-a2fa-4008-8728-b64378fe1eb4" />>)
+![](<img width="1440" height="1040" alt="image" src="https://github.com/user-attachments/assets/2ad7b932-a2fa-4008-8728-b64378fe1eb4" />)
 
 In plain English: if your GPS has σ²x = 0.5, it means the x-position error has a standard deviation of √0.5 ≈ 0.7 meters. A value of 9.0 means you're about 3 meters off — less trustworthy.
 
 ## Fusing GPS : 
+
+This is a Digram that shows how the Navsat transform that convert the readings of the GPS to an odometry readings on **/odometry/gps** topic
 ![](<https://camo.githubusercontent.com/a1106d70e4170dcb53a7de9039911cf33f9b0ca5213bb590d53b87abf7ce784f/68747470733a2f2f692e6962622e636f2f4373427953776b2f6e61767361742d7472616e73666f726d2e706e67>)
 
 ## Explaining Important Things :
