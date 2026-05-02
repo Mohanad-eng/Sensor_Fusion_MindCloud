@@ -1,4 +1,4 @@
-<img width="1440" height="2138" alt="image" src="https://github.com/user-attachments/assets/a35aad8c-449b-4389-b7a9-25ec4ad38122" /># Sensor_Fusion_MindCloud🧭
+# Sensor_Fusion_MindCloud🧭
 ![](<https://images.squarespace-cdn.com/content/v1/6320a2f4b74abf777594e293/934a7d74-1f25-4155-b40d-4b82cec9964a/multi-sensor-fusion.jpg?format=original>)
 
 ## What is Sensor Fusion ?🛰
