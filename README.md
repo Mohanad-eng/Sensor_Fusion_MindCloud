@@ -98,7 +98,11 @@ This is a Digram that shows how the Navsat transform that convert the readings o
 
 **navsat_transform_node** needs the IMU for one specific reason — the GPS gives x/y position but has no idea which direction the rover is facing. The IMU provides the heading (yaw from qz), and navsat uses it to rotate the GPS position into the correct orientation before it can be expressed in the odom frame. Without the IMU heading, navsat cannot initialize.
 
-![](<>)
+- Messege of **gps/fix** :
+  
+![](<Screenshot from 2026-05-02 16-14-14.png>)
+
+Let's Explain more :
 
 ## Project 1: 
 Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and imu 
