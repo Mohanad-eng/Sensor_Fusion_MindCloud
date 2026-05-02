@@ -1,4 +1,4 @@
-# Sensor_Fusion_MindCloud🧭
+<img width="1440" height="2138" alt="image" src="https://github.com/user-attachments/assets/a35aad8c-449b-4389-b7a9-25ec4ad38122" /># Sensor_Fusion_MindCloud🧭
 ![](<https://images.squarespace-cdn.com/content/v1/6320a2f4b74abf777594e293/934a7d74-1f25-4155-b40d-4b82cec9964a/multi-sensor-fusion.jpg?format=original>)
 
 ## What is Sensor Fusion ?🛰
@@ -96,6 +96,9 @@ This is a Digram that shows how the Navsat transform that convert the readings o
 
 ## Explaining Important Things :
 
+**navsat_transform_node** needs the IMU for one specific reason — the GPS gives x/y position but has no idea which direction the rover is facing. The IMU provides the heading (yaw from qz), and navsat uses it to rotate the GPS position into the correct orientation before it can be expressed in the odom frame. Without the IMU heading, navsat cannot initialize.
+
+![](<>)
 
 ## Project 1: 
 Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and imu 
