@@ -104,6 +104,8 @@ This is a Digram that shows how the Navsat transform that convert the readings o
 
 Let's Explain more :
 
+header.stamp this is the timestamp of the GPS fix — the EKF uses this to sync with IMU timestamps. If wrong, fusion breaks.
+
 ## Project 1: 
 Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and imu 
 
