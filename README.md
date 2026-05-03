@@ -47,6 +47,8 @@ EKF is a mathematical algorithm that combines data from different sensors to fig
 
 2- can keep working even if a sensor stops providing data for a little while. It does this by using its educated guesses and the last known sensor readings to keep tracking the robot. When the sensor starts working again, the EKF smoothly brings the new data back into the mix. 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 **EKF Algorithm**
 
 On a high-level, the EKF algorithm has two stages, a predict phase and an update (correction phase).
@@ -116,7 +118,7 @@ GPS :
 
 https://github.com/Mohanad-eng/GPS_MINDCLOUD_Guide.git
 
-
+------------------------------------------------------------------------------------------------------------------------
 
 ## Project 1: 
 Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and imu 
@@ -249,8 +251,6 @@ ekf_filter_node:
 
 ![](<>)
 
-
-
 3- Then in a third terminal run the teleopkey (we make it stampted because webots use stamped) :
 
 ``ros2 run teleop_twist_keyboard teleop_twist_keyboard   --ros-args -p stamped:=true``
@@ -260,6 +260,7 @@ ekf_filter_node:
 ``rviz2``
 
 > How to setup Rviz for simulation :
+
   1- > ![](<>)
 
   2-
@@ -270,9 +271,16 @@ ekf_filter_node:
   
   > here is a photo for the simualtion :
 
-  ![](<>)
+  ![](<Screenshot from 2026-05-03 22-11-54.png>)
 
 
 - The demo video : 
 
 
+----------------------------------------------------------------------------------------------------------------------------------
+
+## Project 2:
+------------------------------------------------------------------------------------------------------------------------------------
+## Real implementation :
+
+- Some tips to take care of :
