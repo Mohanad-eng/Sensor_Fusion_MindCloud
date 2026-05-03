@@ -106,6 +106,18 @@ Let's Explain more :
 
 header.stamp this is the timestamp of the GPS fix — the EKF uses this to sync with IMU timestamps. If wrong, fusion breaks.
 
+## Explorining more sensors :
+
+IMU :
+
+https://github.com/Mohanad-eng/IMU_Guide_MindCloud.git
+
+GPS :
+
+https://github.com/Mohanad-eng/GPS_MINDCLOUD_Guide.git
+
+
+
 ## Project 1: 
 Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and imu 
 
@@ -235,7 +247,9 @@ ekf_filter_node:
 
 `` ros2 launch sensor_fusion_pkg rosbot_launch.py``
 
-> ![](<>)
+![](<>)
+
+
 
 3- Then in a third terminal run the teleopkey (we make it stampted because webots use stamped) :
 
@@ -246,8 +260,8 @@ ekf_filter_node:
 ``rviz2``
 
 > How to setup Rviz for simulation :
-  1-
-> 
+  1- > ![](<>)
+
   2-
   
   3- 
