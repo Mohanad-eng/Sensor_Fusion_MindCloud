@@ -115,11 +115,11 @@ This is a Digram that shows how the Navsat transform that convert the readings o
 
 Let's Explain more :
 
-header.stamp this is the timestamp of the GPS fix — the EKF uses this to sync with IMU timestamps. If wrong, fusion breaks.
+See the part of Gps Sensor 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Explorining more sensors :
+## Explorining more about the sensors :
 
 IMU :
 
@@ -128,6 +128,10 @@ https://github.com/Mohanad-eng/IMU_Guide_MindCloud.git
 GPS :
 
 https://github.com/Mohanad-eng/GPS_MINDCLOUD_Guide.git
+
+Camera :
+
+https://github.com/Mohanad-eng/Camera_Manual_MindCloud.git
 
 ------------------------------------------------------------------------------------------------------------------------
 
