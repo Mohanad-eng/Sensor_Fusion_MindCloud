@@ -119,7 +119,7 @@ See the part of Gps Sensor
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Explorining more about the sensors :
+## Explorining more about the sensors⌨️ :
 
 IMU :
 
@@ -135,7 +135,7 @@ https://github.com/Mohanad-eng/Camera_Manual_MindCloud.git
 
 ------------------------------------------------------------------------------------------------------------------------
 
-## Project 1: 
+## Project 1✔️: 
 Using Rosbot From **Husarion** to fuse the Odometry data from wheel encoders and imu 
 
 - First We make a workspace called **sensor_fusion_ws**
@@ -294,7 +294,7 @@ ekf_filter_node:
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-## Project 2:
+## Project 2✔️:
 ------------------------------------------------------------------------------------------------------------------------------------
 ## Real implementation :
 
@@ -325,7 +325,7 @@ ekf_filter_node:
     
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Troubleshooting :
+## Troubleshooting⚡️ :
 
 1- to see if there are topic or not :
 
@@ -373,7 +373,7 @@ ekf_filter_node:
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## How to know that the readings is right in Sensor Fusion :
+## How to know that the readings is right in Sensor Fusion ✅️ :
 
   1- Check the odometry/filtered readings and the sensor readings compare them
 
@@ -385,4 +385,4 @@ ekf_filter_node:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**Copyrights @ MindCloud Technical Team ALexandria Universty,EGYPT Navigation SubTeam**
+**Copyrights @ MindCloud Technical Team ALexandria Universty,EGYPT Navigation SubTeam**🇪🇬
