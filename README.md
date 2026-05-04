@@ -264,8 +264,6 @@ ekf_filter_node:
 
 `` ros2 launch sensor_fusion_pkg rosbot_launch.py``
 
-![](<>)
-
 3- Then in a third terminal run the teleopkey (we make it stampted because webots use stamped) :
 
 ``ros2 run teleop_twist_keyboard teleop_twist_keyboard   --ros-args -p stamped:=true``
@@ -374,5 +372,17 @@ ekf_filter_node:
     source the ws that contain the pkg's of sensors if they are not in the same ws that have the launch file you run
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## How to know that the readings is right in Sensor Fusion :
+
+  1- Check the odometry/filtered readings and the sensor readings compare them
+
+  2- check the covairance
+
+  3- visualize it in **rviz**
+
+  4-  you can make a node that logs x,y,yaw for the sensors and filtered readings 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Copyrights @ MindCloud Technical Team ALexandria Universty,EGYPT Navigation SubTeam**
