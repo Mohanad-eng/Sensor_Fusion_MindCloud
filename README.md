@@ -19,6 +19,8 @@
 
 and more benefits for it.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## ✔️Let's dive in the Types of the sensor fusion:
 
 ![fusion types](<https://app.dropinblog.com/uploaded/blogs/34241363/files/Types_of_Sensor_3.png>)
@@ -34,7 +36,8 @@ and more benefits for it.
 - **High-Level Fusion (Late Fusion):**
 
   here we fuse the data and and do tracking algorithms for each individual sensor, and then fuse the results.
-
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Filter Types 📌:
 
 ![](<https://miro.medium.com/v2/resize:fit:720/format:webp/1*O_DUzPkZyrMovzD7cf8wlg.png>)
@@ -71,6 +74,8 @@ On a high-level, the EKF algorithm has two stages, a predict phase and an update
   
   Update the state covariance estimate for time t.
 
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 **Robot_localization Pkg 💻**
 
 Extended Kalman Filter(EKF) was developed. This article coherently explains how it works. You need basic knowledge of linear algebra, and statistics specially gaussian distribution to understand the theory. Now, implementing this EKF could be laborious.
@@ -83,6 +88,7 @@ We also need to define which data we want to fuse. You can see from the above im
 
 Once you run the simulation and our package, you will see the non-filtered and filtered odometry in the RVIZ window. To print the filtered odometry message, run “rostopic echo /odometry/filtered” in the command terminal and you will see the better odometry messages.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## What is a  Covariance Matrix :
 
 A covariance matrix describes how uncertain a sensor is about its measurements, and how those uncertainties relate to each other. Think of it as a "confidence score" but in matrix form.
@@ -91,11 +97,14 @@ A covariance matrix describes how uncertain a sensor is about its measurements, 
 
 In plain English: if your GPS has σ²x = 0.5, it means the x-position error has a standard deviation of √0.5 ≈ 0.7 meters. A value of 9.0 means you're about 3 meters off — less trustworthy.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Fusing GPS or GNSS (Global Navigation Satellite System)  : 
 
 This is a Digram that shows how the Navsat transform that convert the readings of the GPS to an odometry readings on **/odometry/gps** topic
 ![](<https://camo.githubusercontent.com/a1106d70e4170dcb53a7de9039911cf33f9b0ca5213bb590d53b87abf7ce784f/68747470733a2f2f692e6962622e636f2f4373427953776b2f6e61767361742d7472616e73666f726d2e706e67>)
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Explaining Important Things :
 
 **navsat_transform_node** needs the IMU for one specific reason — the GPS gives x/y position but has no idea which direction the rover is facing. The IMU provides the heading (yaw from qz), and navsat uses it to rotate the GPS position into the correct orientation before it can be expressed in the odom frame. Without the IMU heading, navsat cannot initialize.
@@ -107,6 +116,8 @@ This is a Digram that shows how the Navsat transform that convert the readings o
 Let's Explain more :
 
 header.stamp this is the timestamp of the GPS fix — the EKF uses this to sync with IMU timestamps. If wrong, fusion breaks.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Explorining more sensors :
 
@@ -305,4 +316,59 @@ ekf_filter_node:
 
     >  Ublox -------------------> /dev/ttyACM0
 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Demo for real Readings :
+    
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Troubleshooting :
+
+1- to see if there are topic or not :
+
+    ``ros2 topic list``
+
+2- if you are attaching sensors and there is not any topics :
+
+    ``ros2 daemon stop``
+
+    ``ros2 daemon start``
+
+3- if you want to see the rate of the sensors :
+
+    ``ros2 topic hz /topic_name``
+
+4- if you want to see the sensor logger :
+
+    ``ros2 run package_name executable_name --ros-args --log-level debug``
+
+5- to know your ports connected to the sensors :
+
+    ``ls /dev/ttyUSB*``
+
+    ``ls /dev/ttyACM0``
+
+6- to make sure that the GPS sensor works :
+
+    you must see the **status : 0**
+
+7- to see if the node are active or not (espically navsat_node & ekf_node) :
+
+    ``ros2 node list``
+
+8- take care of the float and integer no.s in the yaml and launch files
+
+9- to make sure the baud rate are correct :
+
+    go inside the yaml file of the sensor in the **sensor pkg**
+
+     > go to the gps pkg and see the **ublox_m9n.yaml** & in the bno005 go to **bno005_params.yaml** to check
+
+10- to insure that the launch file works :
+
+    source the ws that contain the pkg's of sensors if they are not in the same ws that have the launch file you run
   
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**Copyrights @ MindCloud Technical Team ALexandria Universty,EGYPT Navigation SubTeam**
