@@ -263,7 +263,7 @@ ekf_filter_node:
 
   1- choose add
   
-  ![](<>)
+  ![](<Screenshot from 2026-05-03 19-38-35.png>)
   
   2- add the topic odometry/filtered and make arrow blue
   
@@ -286,3 +286,23 @@ ekf_filter_node:
 ## Real implementation :
 
 - Some tips to take care of :
+  
+  1- **Disable Simulation Time**: Always set **use_sim_time = false** in your YAML and launch files. This ensures your nodes use the system clock rather than waiting for a /clock topic from a simulator.
+
+  2- **Hardware Topic Names**: Match your YAML configurations exactly to the topics published by your physical drivers (e.g., changing /model/robot/scan to /lidar_node/scan). Use ros2 topic list to confirm names while the hardware is running, you will use remappings as 
+
+  3- **Manage Sensor Rates**: While launching the slowest sensor first is a good initialization habit, ensure your fusion node (EKF) has a high internal frequency (30–50Hz) and sufficient message buffers to handle the different speeds of your real sensors.
+
+  4- **Calibrate Covariance Matrices**: Real sensors are noisy. You must manually tune the Observation Noise Covariance ($R$) for each sensor in your YAML. If a sensor is "jumpy," increase its covariance value so the filter trusts it less.
+
+  5- **Audit the TF Tree (Transforms)**: Ensure the physical distance between your sensors (GPS, IMU, Lidar) is measured and updated in your URDF. Small errors in the transform tree lead to massive drift in real-world localization.
+
+  6- **Calibrate the Magnetometer**: In a real environment, motors and metal frames create magnetic interference. You must perform a "hard iron" and "soft iron" calibration on your IMU's magnetometer after it is mounted on the robot.
+
+  7- **take care of the ports** : try to test the ports by ``ls /dev/tty*``
+    
+    >  Bno055 ------------------> /dev/ttyUSB0
+
+    >  Ublox -------------------> /dev/ttyACM0
+
+  
