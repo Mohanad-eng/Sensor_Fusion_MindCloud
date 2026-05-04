@@ -261,13 +261,15 @@ ekf_filter_node:
 
 > How to setup Rviz for simulation :
 
-  1- > ![](<>)
-
-  2-
+  1- choose add
   
-  3- 
+  ![](<>)
+  
+  2- add the topic odometry/filtered and make arrow blue
+  
+  3- add the topic odom and make the arrow red
 
-  4- 
+  4- Foucus on the **red arrow and blue arrow** it tells you how are the readings shifted 
   
   > here is a photo for the simualtion :
 
