@@ -377,6 +377,7 @@ ekf_filter_node:
 
     and then run ``ros2 daemon start``
     
+    
     >  The daemon is a background process that ROS2 keeps running. It does NOT write messages. It keeps a directory — like a phone book — of every node and topic currently alive on your machine. When you run ros2 topic list or ros2 node list, instead of scanning the entire network (which is slow), it just asks the daemon "who is registered right now?" The daemon answers    instantly from its cached list.
     
     > DDS (Data Distribution Service) is the actual messaging system underneath ROS2. This is the part that moves data between nodes. It is a publish-subscribe middleware that handles the actual bytes going from one node to another over the network.    
