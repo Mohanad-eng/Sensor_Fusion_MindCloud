@@ -370,6 +370,17 @@ ekf_filter_node:
 10- to insure that the launch file works :
 
     source the ws that contain the pkg's of sensors if they are not in the same ws that have the launch file you run
+    
+11- If the Ros Topics dont appear :
+
+    run the following command ``ros2 daemon stop``
+
+    and then run ``ros2 daemon start``
+    
+    >  The daemon is a background process that ROS2 keeps running. It does NOT write messages. It keeps a directory — like a phone book — of every node and topic currently alive on your machine. When you run ros2 topic list or ros2 node list, instead of scanning the entire network (which is slow), it just asks the daemon "who is registered right now?" The daemon answers    instantly from its cached list.
+    
+    > DDS (Data Distribution Service) is the actual messaging system underneath ROS2. This is the part that moves data between nodes. It is a publish-subscribe middleware that handles the actual bytes going from one node to another over the network.    
+
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
