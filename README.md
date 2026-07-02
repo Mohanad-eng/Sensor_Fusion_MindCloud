@@ -129,13 +129,15 @@ GPS :
 
 https://github.com/Mohanad-eng/GPS_MINDCLOUD_Guide.git
 
-Camera :
+Camera(Oak) :
 
 https://github.com/Mohanad-eng/Camera_Manual_MindCloud.git
 
 Optical Flow :
 
+https://github.com/Mohanad-eng/Optical_Flow_Sensor.git
 
+Camera(Fish eye) :
 
 ------------------------------------------------------------------------------------------------------------------------
 
