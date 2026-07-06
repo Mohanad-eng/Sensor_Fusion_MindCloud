@@ -418,7 +418,27 @@ ekf_filter_node:
 
      1- Test the Local_odom instead of Global_odom 
 
-     2- 
+     2- Verify physical mounting (no tools running yet)
+     
+         - Confirm IMU is bolted rigidly, no flex.
+
+         - Confirm your static_transform_publisher for base_link → imu_link matches how the chip is actually oriented (if it's mounted rotated 90°/180° relative to the chassis, the transform must say so).
+
+         - Same check for the GPS antenna and optical flow mount.
+
+     3- Confirm mounting in RViz (relative check)
+
+        - Add TF display in RViz, fixed frame = odom (or map).
+
+        - Physically slide/push the rover (motors off) in different directions.
+
+        - The base_link red arrow (x-axis) must always point toward the rover's real physical front as you move it.
+
+     4- Check magnetometer calibration status
+
+        - Read the BNO055's calibration status register/topic (varies by driver — check bno055 package docs/topics for a calibration status field).
+
+        - 
 
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
