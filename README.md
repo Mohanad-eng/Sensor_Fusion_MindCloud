@@ -105,6 +105,17 @@ This is a Digram that shows how the Navsat transform that convert the readings o
 ![](<https://camo.githubusercontent.com/a1106d70e4170dcb53a7de9039911cf33f9b0ca5213bb590d53b87abf7ce784f/68747470733a2f2f692e6962622e636f2f4373427953776b2f6e61767361742d7472616e73666f726d2e706e67>)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Global Vs Local : 
+
+| | Local odometry (`odom` frame) | Global odometry (`map` frame) |
+|---|---|---|
+| **Source** | wheel/optical-flow velocity + IMU | above **+ GPS** |
+| **Behavior** | smooth, continuous, no jumps | can jump/snap when GPS corrects drift |
+| **Long-term accuracy** | drifts (integration error accumulates) | stays bounded/absolute |
+| **TF** | `odom → base_link` | `map → odom` |
+| **Use for** | local planning, control loops | global position, waypoint nav |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Explaining Important Things :
 
 **navsat_transform_node** needs the IMU for one specific reason — the GPS gives x/y position but has no idea which direction the rover is facing. The IMU provides the heading (yaw from qz), and navsat uses it to rotate the GPS position into the correct orientation before it can be expressed in the odom frame. Without the IMU heading, navsat cannot initialize.
@@ -323,6 +334,21 @@ ekf_filter_node:
     >  Bno055 ------------------> /dev/ttyUSB0
 
     >  Ublox -------------------> /dev/ttyACM0
+    
+    
+  8- **Only the local EKF should set publish_tf: true for odom→base_link. The global EKF publishes map→odom only.**
+
+  9- **navsat_transform_node** needs a datum (or let it auto-set from the first fix) and a good IMU yaw reference (yaw_offset) to rotate lat/lon into your local frame correctly.
+  
+  10- **Wait for GPS fix** quality/enough satellites before trusting it — garbage fixes early on will corrupt the datum.
+
+  11- **IMU** Rules in Mounting : 1- **Bolt it rigidly** — any flex or vibration corrupts the accel/gyro readings.
+                                  2- **Keep it away from** motors, ESCs, batteries, and current-carrying cables — these are magnetic field sources that will bias the compass heading, which is exactly the kind of thing that could explain your symptom below.
+
+  12- **GPS** : 1- **Highest point** on the rover, **360° clear sky view** — no chassis, arms, or masts blocking any direction.
+                2- **Keep it physically away** from motors, ESCs, and high-current wiring (RF noise degrades fix quality) and away from the IMU (electromagnetic interference on the compass).
+
+  13- 
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -386,7 +412,13 @@ ekf_filter_node:
     
     >  The daemon is a background process that ROS2 keeps running. It does NOT write messages. It keeps a directory — like a phone book — of every node and topic currently alive on your machine. When you run ros2 topic list or ros2 node list, instead of scanning the entire network (which is slow), it just asks the daemon "who is registered right now?" The daemon answers    instantly from its cached list.
     
-    > DDS (Data Distribution Service) is the actual messaging system underneath ROS2. This is the part that moves data between nodes. It is a publish-subscribe middleware that handles the actual bytes going from one node to another over the network.    
+    > DDS (Data Distribution Service) is the actual messaging system underneath ROS2. This is the part that moves data between nodes. It is a publish-subscribe middleware that handles the actual bytes going from one node to another over the network.   
+
+12- if you have bad Readings see the following steps : 
+
+     1- Test the Local_odom instead of Global_odom 
+
+     2- 
 
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
