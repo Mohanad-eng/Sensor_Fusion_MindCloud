@@ -105,7 +105,7 @@ This is a Digram that shows how the Navsat transform that convert the readings o
 ![](<https://camo.githubusercontent.com/a1106d70e4170dcb53a7de9039911cf33f9b0ca5213bb590d53b87abf7ce784f/68747470733a2f2f692e6962622e636f2f4373427953776b2f6e61767361742d7472616e73666f726d2e706e67>)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Global Vs Local : 
+## Global Vs Local Odometry: 
 
 | | Local odometry (`odom` frame) | Global odometry (`map` frame) |
 |---|---|---|
