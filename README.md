@@ -348,7 +348,7 @@ ekf_filter_node:
   12- **GPS** : 1- **Highest point** on the rover, **360° clear sky view** — no chassis, arms, or masts blocking any direction.
                 2- **Keep it physically away** from motors, ESCs, and high-current wiring (RF noise degrades fix quality) and away from the IMU (electromagnetic interference on the compass).
 
-  13- 
+  13- We use the **Global Odom** in the Waypoints , while in the localization we use the **Local Odom**
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
