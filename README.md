@@ -438,7 +438,11 @@ ekf_filter_node:
 
         - Read the BNO055's calibration status register/topic (varies by driver — check bno055 package docs/topics for a calibration status field).
 
-        - 
+     5- Bias/noise check (stationary) 
+
+        - ros2 topic echo /bno055/imu --field angular_velocity
+
+        - With the rover perfectly still, this should hover near 0, 0, 0 (small noise, no steady offset). A consistent non-zero z value here is gyro bias — it will integrate into fake yaw drift over time in your local EKF            even with zero real rotation.
 
   
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
